@@ -1,0 +1,37 @@
+server:
+  port: 8088
+spring:
+  profiles:
+    active: dev
+  datasource:
+    username: root
+    password: sunjiahao123
+    url: jdbc:mysql://127.0.0.1/et1808?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    maxPoolPreparedStatementPerConnectionSize: 20
+    useGlobalDataSourceStat: true
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+mybatis:
+  mapper-locations:  classpath:Mybatis/mapper/*.xml
+  config-location:  classpath:Mybatis/mybatis-config.xml
+gd:
+  hello:
+    prefix: kobe
+    suffix: bryant
+#    schema:
+#      - classpath:department.sql

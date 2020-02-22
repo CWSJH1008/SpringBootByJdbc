@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gd.mapper.EmpMapper">
+        <select id="empById" resultType="com.gd.bean.Emp" parameterType="java.lang.Integer">
+            select a.id as 'id',emp_name,b.id as 'depart.id',b.depart_name as 'depart.depart_name'
+            from emp a left join depart b on a.emp_depart=b.id where a.id=#{id}
+        </select>
+</mapper>
